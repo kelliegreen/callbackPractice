@@ -24,12 +24,14 @@ and what you should write is the sayHi function that makes the code above work,
 
 
 
-  //Code Here for first
+var first = function(names, callback) {
+  callback(names[0]);
+};
   
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
-  console.log('The first name in names is ' + firstName)
+  console.log('The first name in names is ' + firstName);
 });
 
 
