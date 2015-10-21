@@ -24,13 +24,13 @@ and what you should write is the sayHi function that makes the code above work,
 
 
 
-var first = function(names, callback) {
+var first = function (names, callback) {
   callback(names[0]);
 };
-  
+
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-first(names, function(firstName){
+first(names, function (firstName) {
   console.log('The first name in names is ' + firstName);
 });
 
@@ -41,10 +41,12 @@ first(names, function(firstName){
 
 
 
-  //Code Here for last
+var last = function (names, callback) {
+  callback(names[6]);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-last(names, function(lastName){
+last(names, function (lastName) {
   console.log('The last name in names is ' + lastName);
 });
 
@@ -59,11 +61,14 @@ last(names, function(lastName){
 
 
 
-  //Code Here for multiply
+var multiply = function (a, b, callback) {
+  var answer = a * b;
+  callback(answer);
+};
 
-multiply(4, 3, function(answer){
+multiply(4, 3, function (answer) {
   console.log('The answer is ' + answer); //should console.log 12
-})
+});
 
 
 
@@ -75,14 +80,21 @@ multiply(4, 3, function(answer){
 
 
 
-  //Code Here for contains
+var contains = function (names, target, callback) {
+  for(var i = 0; i < names.length; i++) {
+    if (target === names[i]) {
+    return callback(target, true);
+    }
+  }
+    return callback(target, false);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-contains(names, 'Colt', function(result){
+contains(names, 'Colt', function(target, result){
   if(result === true){
-    console.log('Colt is in the array');
+    console.log(target + ' is in the array');
   } else {
-    console.log('Colt is not in the array');
+    console.log(target + ' is not in the array');
   }
 });
 
@@ -95,10 +107,10 @@ contains(names, 'Colt', function(result){
 
 
 
-    //Code Here for uniq
+//Code Here for uniq
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-uniq(names, function(uniqArr){
+uniq(names, function (uniqArr) {
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
 
@@ -111,10 +123,10 @@ uniq(names, function(uniqArr){
 
 
 
-    //Code Here for each
+//Code Here for each
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
-each(names, function(item, indice){
+each(names, function (item, indice) {
   console.log('The item in the ' + indice + ' position is ' + item)
 });
 
@@ -128,7 +140,7 @@ each(names, function(item, indice){
 
 
 
- //code here for getUserById
+//code here for getUserById
 
 var users = [
   {
@@ -151,6 +163,6 @@ var users = [
   },
 ];
 
-getUserById(users, '16t', function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address); 
+getUserById(users, '16t', function (user) {
+  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address);
 });
