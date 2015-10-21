@@ -131,7 +131,13 @@ uniq(names, function (uniqArr) {
 
 
 
-//Code Here for each
+var each = function(names, cb) {
+  for(var i = 0; i < names.length; i++) {
+    var indice = [i];
+    var item = names[i];
+  cb(item, indice);
+  }  
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function (item, indice) {
